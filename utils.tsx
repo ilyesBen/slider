@@ -4,3 +4,5 @@ export enum textContent {
   "Aya zid degem ah khouya ah khouya!!",
   "hahaha 3ajbatek goul sah yeh",
 }
+
+export const labels = ["Funny", "Funky", "Balolo", "Pliya"];

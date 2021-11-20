@@ -4,13 +4,11 @@ import { textContent } from "./utils";
 import { Button } from "./Button";
 
 const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   topContainer: {
-    flex: 2,
+    flex: deviceHeight * 0.7,
     width: deviceWidth,
     justifyContent: "center",
     alignItems: "flex-end",
@@ -20,7 +18,12 @@ const styles = StyleSheet.create({
     lineHeight: 80,
     color: "white",
   },
-  bottomContainer: { flex: 1, justifyContent: "center", alignItems: "center" },
+  bottomContainer: {
+    height: deviceHeight * 0.3,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    paddingBottom: 30,
+  },
   text: {
     fontSize: 18,
     marginBottom: 20,
@@ -45,7 +48,7 @@ export const Slider = ({
   const [textWidth, setTextWidth] = useState(0);
 
   return (
-    <View style={styles.container}>
+    <View>
       <View
         style={[
           styles.topContainer,

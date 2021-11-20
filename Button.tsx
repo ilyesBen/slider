@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import React from "react";
+import { Text, StyleSheet, Pressable } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
