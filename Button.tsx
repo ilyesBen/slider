@@ -1,19 +1,23 @@
 import React from "react";
-import { Text, StyleSheet, Pressable } from "react-native";
+import { Text, StyleSheet, Pressable, Platform, View } from "react-native";
+
+const isIos = Platform.OS === "ios";
 
 const styles = StyleSheet.create({
   container: {
-    width: 200,
-    backgroundColor: "grey",
-    justifyContent: "center",
-    alignItems: "center",
     height: 40,
-    borderRadius: 20,
+    borderRadius: 30,
+    width: 200,
+    overflow: "hidden",
   },
   text: {
     fontSize: 18,
     fontWeight: "500",
-    color: "white",
+  },
+  button: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
   },
 });
 
@@ -25,14 +29,20 @@ interface Props {
 
 export const Button = ({ text, color, onPress }: Props) => {
   return (
-    <Pressable
-      style={({ pressed }) => [
-        styles.container,
-        { backgroundColor: pressed ? "#D3D3D3" : color },
-      ]}
-      onPress={onPress}
-    >
-      <Text style={styles.text}>{text}</Text>
-    </Pressable>
+    <View style={styles.container}>
+      <Pressable
+        style={({ pressed }) => [
+          styles.button,
+          { backgroundColor: isIos && pressed ? "#D3D3D3" : color },
+        ]}
+        onPress={onPress}
+        android_ripple={{
+          color: "#D3D3D3",
+          borderless: true,
+        }}
+      >
+        <Text style={styles.text}>{text}</Text>
+      </Pressable>
+    </View>
   );
 };
