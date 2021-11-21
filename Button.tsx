@@ -5,9 +5,9 @@ const isIos = Platform.OS === "ios";
 
 const styles = StyleSheet.create({
   container: {
-    height: 40,
+    height: 50,
     borderRadius: 30,
-    width: 200,
+    width: 320,
     overflow: "hidden",
   },
   text: {
@@ -23,11 +23,12 @@ const styles = StyleSheet.create({
 
 interface Props {
   text: string;
-  color: string;
   onPress: () => void;
+  type?: "primary" | "secondary";
 }
 
-export const Button = ({ text, color, onPress }: Props) => {
+export const Button = ({ text, onPress, type = "primary" }: Props) => {
+  const color = type === "secondary" ? "#E8E8E8" : "#8FBC8F";
   return (
     <View style={styles.container}>
       <Pressable

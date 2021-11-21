@@ -74,7 +74,7 @@ export const Slider = ({
         <Text style={styles.text}>{textContent[index]}</Text>
         <Button
           text={isLast ? "Get Started" : "Next"}
-          color={isLast ? "#32CD32" : "#8FBC8F"}
+          type={isLast ? "secondary" : "primary"}
           onPress={onButtonPress}
         />
       </View>
